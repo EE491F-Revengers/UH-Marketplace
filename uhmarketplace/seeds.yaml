@@ -1,5 +1,23 @@
 # basic Uhmarketplaces
 
+- model: uhmarketplace.User
+  pk: 1
+  fields:
+    username: ScottsTots
+
+
+- model: uhmarketplace.User
+  pk: 2
+  fields:
+    username: RegionalManager
+
+
+- model: uhmarketplace.User
+  pk: 3
+  fields:
+    username: BigTuna
+
+
 - model: uhmarketplace.Textbook
   fields:
     book_title: Quantum Physics
@@ -18,7 +36,7 @@
     content: Want to Sell
     created_date: 2021-06-22T17:41:28+00:00
     published_date: 2021-06-22T17:41:28+00:00
-    created_by: 1
+    created_by: 2
 
 - model: uhmarketplace.Textbook
   fields:
@@ -28,7 +46,7 @@
     content: Want to Trade for EE213 Book
     created_date: 2021-07-22T17:41:28+00:00
     published_date: 2021-07-22T17:41:28+00:00
-    created_by: 1
+    created_by: 3
 
 - model: uhmarketplace.Textbook
   fields:
@@ -38,7 +56,7 @@
     content: Free
     created_date: 2021-07-23T17:41:28+00:00
     published_date: 2021-07-23T17:41:28+00:00
-    created_by: 1
+    created_by: 2
 
 - model: uhmarketplace.Textbook
   fields:

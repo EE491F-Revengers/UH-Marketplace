@@ -23,7 +23,7 @@
         {{ filter.form }}
         <button type="submit" class="btn btn-primary">Search</button>
       </form>
-    {% for uhmarketplace in textbook_list %}
+    {% for uhmarketplace in filter.qs %}
     <li>
       <h5>{{ uhmarketplace.book_title }}</h5>
       <p><b>Author:</b> {{ uhmarketplace.book_author }}</p>

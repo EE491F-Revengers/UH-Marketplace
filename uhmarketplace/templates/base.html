@@ -102,7 +102,7 @@
                                 </ul>
                                 
                             </div>
-                            {% if user %}
+                            {% if user.username %}
                                 <button type="button" class="btn btn-outline-light btn-sm" style="border-radius: 15%;">
                                     <a class="nav-link mr-auto link-color"
                                         href="{% url 'uhmarketplace:index' %}"></a>Welcome {{user.username}}!</a></button>

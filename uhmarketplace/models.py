@@ -1,10 +1,13 @@
 from django.conf import settings
 from django.db import models
 from django.utils import timezone
-from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractUser
 
 class Uhmarketplace(models.Model):
     message = models.CharField(max_length=80)
+
+class User(AbstractUser):
+    pass
 
 class Textbook(models.Model):
     book_title = models.CharField(max_length=80)
@@ -21,4 +24,3 @@ class Textbook(models.Model):
 
     def __str__(self):
         return self.book_title
-
