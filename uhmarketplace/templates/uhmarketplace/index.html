@@ -1,40 +1,32 @@
 {% extends "base.html" %}
 
     {% block content %}
-    <div id="site-content" class="mx-auto"
-    <header id="UHMarkerplaceHeader">
-        <center>
-        <h1>Welcome to the University of Hawaii Marketplace</h1>
-        </center>
-    </header>
-    <div class= "tree container-fluid ">
-    <div class= "tree2 container-fluid">
-    <div class = "rainbow mx-auto">
-        <h1> <u>Basics info about site:</u> </h2>
-        <p> -This site was created to help <span style="color:green"> UHM </span> students!!! <br />
-            -Students can visit pages such as <u>textbooks</u> to see if anyone is selling textbooks at a low price!!! <br />
-            -Site is free to use!!!
-        </div>
-    <div class = "rainbow">
-        <h2> <u>How to get started:</u> </h2>
-        <p> -Navigate using the top bar and visit sites you are interested in <br />
-            -Intructions and additional information will be included in the site that you visit <br />
-            -Make the best out of your college experience
-        </div>
-    <div class = "rainbow">
-        <h3> <u>Tips for incoming freshmen:</u> </h3>
-        <p> -Subscribe to Chegg(Don't abuse it!!!)  <br />
-            -Dont be afraid to ask questions <br />
-            -Make friends
-         </div>    
-    <div class = "rainbow">
-            <h4> <u>Rules and Regulations:</u> </h4>
-            <p> -Do not conduct any illegal activities  <br />
-                -Do not bully, harass, or discriminate others <br />
-                -Do not use this site to cheat on any class (<span style="color:red"> BE ETHICAL OR WE WILL REPORT YOU TO THE FBI!!! </span>) 
-             </div>    
+<div id="site-content" class="container-fluid parallax mx-auto"></div>
+    <div class="parallax">
+        <h1 class="over-lay">Welcome to the University of Hawaii Marketplace</h1>
+        <p class="landing-paragraph" style="text-align: center; color:white; font-family: Alegreya Regular; font-size: 25px;"> This site was created to help <span style="color:green"> UHM </span> students!!! Students can visit pages such as <u>textbooks</u> to see if anyone is selling textbooks at a low price!!! <br /></p>
+    </div>
+    <div class="basic-info">
+        <div class="row" style="text-align: center;">
+            <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                <h3>How to get started:</h3>
+                <p>-Navigate using the top bar and visit sites you are interested in <br />
+                    -Intructions and additional information will be included in the site that you visit <br />
+                    -Make the best out of your college experience</p>
+            </div>
+            <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                <h3>Tips for incoming freshmen:</h3>
+                <p>-Subscribe to Chegg(Don't abuse it!!!)  <br />
+                    -Dont be afraid to ask questions <br />
+                    -Make friends</p>
+            </div>
+            <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                <h3>Rules and Regulations:</h3> 
+                <p>-Do not conduct any illegal activities  <br />
+                    -Do not bully, harass, or discriminate others <br />
+                    -Do not use this site to cheat on any class (<span style="color:red"> BE ETHICAL OR WE WILL REPORT YOU TO THE FBI!!! </span>)</p>
+            </div>
         </div>
     </div>
 </div>
-
     {%endblock %}
