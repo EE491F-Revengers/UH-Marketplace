@@ -102,17 +102,21 @@
                                 </ul>
                                 
                             </div>
-                            {% if user.username %}
+                            {% if user.is_authenticated %}
+                                Welcome {{user.username}}!
                                 <button type="button" class="btn btn-outline-light btn-sm" style="border-radius: 15%;">
-                                    <a class="nav-link mr-auto link-color"
-                                        href="{% url 'uhmarketplace:index' %}"></a>Welcome {{user.username}}!</a></button>
-
+                                <form action="{% url 'accounts:logout' %}" method="POST" id ="logout">
+                                    {% csrf_token %}
+                                    <input type="submit" value="Logout">
+                                </form></button>
+      
 
                                 {% else %}
                                     <button type="button" class="btn btn-outline-light btn-sm" style="border-radius: 15%;">
-                                        <a class="nav-link mr-auto link-color" href="{% url 'uhmarketplace:index' %}">Sign
+                                        <a class="nav-link mr-auto link-color" href="{% url 'accounts:login' %}">Sign
                                         In</a></button>
                             {% endif %}
+                            </form> 
                         </div>
                     </div>
                 </div>

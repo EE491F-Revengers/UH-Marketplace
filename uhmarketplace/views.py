@@ -1,11 +1,12 @@
 from django.views import generic
 from django.urls import reverse_lazy
-from .models import Textbook, Uhmarketplace
+from .models import CommentSection, Textbook, Uhmarketplace
 from django.utils import timezone
 from .filters import TextbookFilter
 from django.contrib.auth.models import User
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls.base import set_urlconf
+
 
 class IndexView(generic.ListView):
     template_name = 'uhmarketplace/index.html'
@@ -89,4 +90,20 @@ class FilterCreatedByView(generic.ListView):
         """Return all the blogs."""
         me = User.objects.get(username=self.request.user)
         return Textbook.objects.filter(created_by=me)
+  
+class CreateCommentView(generic.edit.CreateView):
+    template_name = 'uhmarketplace/createtextbook.html'
+    model = CommentSection
+    fields = ['content', 'created_by']
+    success_url = reverse_lazy('uhmarketplace:textbook') # more robust than hardcoding to /uhmarketplace/; directs user to index view after creating a Uhmarketplace
 
+class UpdateCommentView(generic.edit.UpdateView):
+    template_name = 'uhmarketplace/updatetextbook.html'
+    model = CommentSection
+    fields = ['content']
+    success_url = reverse_lazy('uhmarketplace:textbook')
+
+class DeleteCommentView(generic.edit.DeleteView):
+    template_name = 'uhmarketplace/deletetextbook.html' # override default of uhmarketplace/uhmarketplace_confirm_delete.html
+    model = CommentSection
+    success_url = reverse_lazy('uhmarketplace:textbook')

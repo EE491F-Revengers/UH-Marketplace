@@ -9,37 +9,66 @@
 
 
 <div>
+    {% if user.is_authenticated %}
     <ul>
         <a href="{% url 'uhmarketplace:createtextbook' %}">Post Your Textbook Here</a>
         {% if textbook_list %}
-            ----
-            <a href="{% url 'uhmarketplace:decorderDate' %}">Newest Posts</a> ----
-            <a href="{% url 'uhmarketplace:ascorderDate' %}">Oldest Posts</a> ----
-            <a href="{% url 'uhmarketplace:myTextbook' %}">My Posts</a> ----
-            <a href="{% url 'uhmarketplace:searchtextbook' %}">Search Textbook</a> 
+        ----
+        <a href="{% url 'uhmarketplace:decorderDate' %}">Newest Posts</a> ----
+        <a href="{% url 'uhmarketplace:ascorderDate' %}">Oldest Posts</a> ----
+        <a href="{% url 'uhmarketplace:myTextbook' %}">My Posts</a> ----
+        <a href="{% url 'uhmarketplace:searchtextbook' %}">Search Textbook</a>
         <br>
+        <hr>
         {% for uhmarketplace in textbook_list %}
         <li>
             <h5>{{ uhmarketplace.book_title }}</h5>
             <p><b>Author:</b> {{ uhmarketplace.book_author }}</p>
             <p><b>Course</b>: {{ uhmarketplace.course }}</p>
-            <p><b>Comments:</b></p>
+            <p><b>Description:</b></p>
             <p>{{ uhmarketplace.content}}</p>
             <h6><b>Published:</b> {{ uhmarketplace.published_date }}</h6>
             <h6><b>Posted by:</b> {{ uhmarketplace.created_by }}</h6>
             <!-- Down below only allows the person who created the post to edit or delete their post -->
-            {% if user ==  uhmarketplace.created_by %}
+            {% if user == uhmarketplace.created_by %}
             <span><a href="{% url 'uhmarketplace:updatetextbook' uhmarketplace.id %}">edit</a></span>
             <span><a href="{% url 'uhmarketplace:deletetextbook' uhmarketplace.id %}">delete</a></span>
             {% endif %}
         </li>
+        <!-- down below is the comment section-->
+        <h5>Comments</h5>
+        {% if not comment_list %}
+        <p style="text-align:left">No Comments.</p>
+        <a href="{% url 'uhmarketplace:createcomment' %}">Post a Comment!</a>
+        {% else %}
+        {% for uhmarketplace in comment_list %}
+        <li>
+            <h6><b>Posted by:</b> {{ uhmarketplace.created_by }}:</h6>
+            <p>{{ uhmarketplace.comment }}</p>
+            <h6><b>Published:</b> {{ uhmarketplace.date_added }}</h6>
+            {% if user == uhmarketplace.created_by %}
+            <span><a href="{% url 'uhmarketplace:updatecomment' uhmarketplace.id %}">edit</a></span>
+            <span><a href="{% url 'uhmarketplace:deletecomment' uhmarketplace.id %}">delete</a></span>
+            {% endif %}
+            <br>
+        </li>
+        {% endfor %}
+
+
+        {% endif %}
+
         <br>
-        <br>
+        <hr>
         <br>
         {% endfor %}
     </ul>
     {% else %}
     <p style="text-align:center">No Posts.</p>
+    {% endif %}
+
+    {% else %}
+    <h5>You are not logged in, please <a href="{% url 'accounts:login'%}">Please Sign in</a> or <a
+        href="{% url 'accounts:signup'%}">sign up</a> to view the Textbooks</h5>
     {% endif %}
 
 

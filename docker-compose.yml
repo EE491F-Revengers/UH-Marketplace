@@ -7,4 +7,12 @@ services:
     command:
       - scripts/start_app.sh
     ports:
-      - "8000:8000"
+      - "8005:8000"
+  database:
+    image: postgres:13.3 # use latest official postgres version
+    env_file:
+      - database.env # configure postgres
+    volumes:
+      - database-data:/var/lib/postgresql/data/
+volumes:
+  database-data: # named volumes can be managed easier using docker-compose
