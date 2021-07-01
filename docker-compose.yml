@@ -7,7 +7,7 @@ services:
     command:
       - scripts/start_app.sh
     ports:
-      - "8005:8000"
+      - "8000:8000"
   database:
     image: postgres:13.3 # use latest official postgres version
     env_file:

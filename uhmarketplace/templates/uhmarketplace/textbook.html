@@ -19,48 +19,45 @@
         <a href="{% url 'uhmarketplace:myTextbook' %}">My Posts</a> ----
         <a href="{% url 'uhmarketplace:searchtextbook' %}">Search Textbook</a>
         <br>
-        <hr>
-        {% for uhmarketplace in textbook_list %}
-        <li>
-            <h5>{{ uhmarketplace.book_title }}</h5>
-            <p><b>Author:</b> {{ uhmarketplace.book_author }}</p>
-            <p><b>Course</b>: {{ uhmarketplace.course }}</p>
-            <p><b>Description:</b></p>
-            <p>{{ uhmarketplace.content}}</p>
-            <h6><b>Published:</b> {{ uhmarketplace.published_date }}</h6>
-            <h6><b>Posted by:</b> {{ uhmarketplace.created_by }}</h6>
-            <!-- Down below only allows the person who created the post to edit or delete their post -->
-            {% if user == uhmarketplace.created_by %}
-            <span><a href="{% url 'uhmarketplace:updatetextbook' uhmarketplace.id %}">edit</a></span>
-            <span><a href="{% url 'uhmarketplace:deletetextbook' uhmarketplace.id %}">delete</a></span>
-            {% endif %}
-        </li>
-        <!-- down below is the comment section-->
-        <h5>Comments</h5>
-        {% if not comment_list %}
-        <p style="text-align:left">No Comments.</p>
-        <a href="{% url 'uhmarketplace:createcomment' %}">Post a Comment!</a>
-        {% else %}
-        {% for uhmarketplace in comment_list %}
-        <li>
-            <h6><b>Posted by:</b> {{ uhmarketplace.created_by }}:</h6>
-            <p>{{ uhmarketplace.comment }}</p>
-            <h6><b>Published:</b> {{ uhmarketplace.date_added }}</h6>
-            {% if user == uhmarketplace.created_by %}
-            <span><a href="{% url 'uhmarketplace:updatecomment' uhmarketplace.id %}">edit</a></span>
-            <span><a href="{% url 'uhmarketplace:deletecomment' uhmarketplace.id %}">delete</a></span>
-            {% endif %}
-            <br>
-        </li>
-        {% endfor %}
+        <div class="accordion" id="accordionPanelsStayOpenExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                        Available Textbooks
+                      </button>
+                </h2>
+                <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">                   
+                    <div class="accordion-body">
+                    {% for uhmarketplace in textbook_list %}
+                        <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                            <div class="card" style="width: 18rem;">
+                                <img class="card-img-top" src="..." alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ uhmarketplace.book_title }}</h5>
+                                    <p class="card-text"><b>Posted by:</b> {{ uhmarketplace.created_by }}</p>
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item"><b>Author:</b> {{ uhmarketplace.book_author }}</li>
+                                    <li class="list-group-item"><p><b>Course</b>: {{ uhmarketplace.course }}</p></li>
+                                    <li class="list-group-item"><b>Comments:</b> {{ uhmarketplace.content}}</li>
+                                    <li class="list-group-item"><b>Published:</b> {{ uhmarketplace.published_date }}</li>
+                                </ul>
+                                <!-- Down below only allows the person who created the post to edit or delete their post -->
+                                {% if user ==  uhmarketplace.created_by %}
+                                <span><a href="{% url 'uhmarketplace:updatetextbook' uhmarketplace.id %}">edit</a></span>
+                                <span><a href="{% url 'uhmarketplace:deletetextbook' uhmarketplace.id %}">delete</a></span>
+                        {% endif %}
+                            </div>   
+                        </div>
+                        <br>
+                        <br>
+                        <br>
+                    {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
 
-
-        {% endif %}
-
-        <br>
-        <hr>
-        <br>
-        {% endfor %}
     </ul>
     {% else %}
     <p style="text-align:center">No Posts.</p>
