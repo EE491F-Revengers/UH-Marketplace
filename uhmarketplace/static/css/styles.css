@@ -117,17 +117,30 @@ h3 {
       font-size: 2em;
       max-width: 100%;
     }
+    .over-lay {
+      margin-top: -150% !important;
+      font-size: 40px;
+    }
   }
   
+  @media(max-width: 375px) {
+    .over-lay {
+      margin-top: -90%; 
+      font-size: 40px;
+    }
+  }
   /* BIG-ISH SCREENS / Tablets */
   
-  @media (min-width: 768px) {
+  @media (max-width: 768px) {
 
     #section-content {
       font-size: 2em;
       max-width: 100%;
     }
 
+    .over-lay {
+      margin-top: -60%;
+    }
   }
   
   /* regular laptops */
@@ -159,3 +172,26 @@ h3 {
   
   }
   
+  @media (min-width: 1400px) {
+    #site-content {
+      max-width: 100%;
+    }
+
+    .basic-info {
+      padding-top: 3rem;
+    }
+  
+    .over-lay {
+      margin-top: -30%;
+    }
+  }
+  
+  @media(min-width: 2500px) {
+    .over-lay {
+      font-size: 90px;
+      margin-top: -20%;
+    }
+    .landing-paragraph {
+      font-size: 50px !important;
+    }
+  }
