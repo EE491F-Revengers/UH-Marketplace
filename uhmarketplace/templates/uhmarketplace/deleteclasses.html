@@ -1,6 +1,6 @@
 <!-- This section is for deleting classes posts -->
     
-form method="post">{% csrf_token %}
+<form method="post">{% csrf_token %}
     <p>Are you sure you want to delete "{{ object.message }}"?</p>
     <input type="submit" value="Confirm">
 </form>
