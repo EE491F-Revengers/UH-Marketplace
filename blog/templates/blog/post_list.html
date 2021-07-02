@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<header id="UHMarkerplaceHeader">
+  <h1>Foodie</h1>
+  <p>A place to discuss about the awesome places to eat or horrible places to avoid</p>
+</header>
+
+{% if user.is_authenticated %}
+<a href="{% url 'post_new' %}" class="top-menu">Create a Foodie Post</a>
+{% endif %}
+{% for post in posts %}
+    <article>
+        <time>published: {{ post.published_date }}</time>
+        <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>        
+        <p>{{ post.text|linebreaksbr }}</p>
+    </article>
+{% endfor %}
+
+{% endblock %}

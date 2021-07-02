@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'uhmarketplace.apps.UhmarketplaceConfig',
     'django_filters',
     'accounts',
+    'blog.apps.BlogConfig',
 ]
 
 MIDDLEWARE = [
