@@ -1,3 +1,5 @@
 django~=2.1.7
+django-heroku~=0.3.1
 pyyaml~=5.1 # needed to support defining our seeds in a YAML file
 django-filter
+psycopg2-binary~=2.8.0
