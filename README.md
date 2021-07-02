@@ -1,5 +1,4 @@
 # Getting Started
----------------
 1. install docker
 2. install docker-compose
 3. clone repository: `git clone --recursive https://github.com/zhao-lin-li/django_with_containers.git`
@@ -11,7 +10,7 @@
 * Kiyoshi Hashida (mistahYoshi)
 * Sean Flynn (sflynn7)
 * Beemnet Alemayehu (beemneta)
-* Daniel Kim (dkmi26)
+* Daniel Kim (dkim26)
 
 
 # Latest Release 
