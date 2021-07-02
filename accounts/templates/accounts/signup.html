@@ -2,12 +2,25 @@
 
 {% block content %}
 <div class="parallax-signup">
-  <h1>Signup</h1>
- 
-  <form class="site-form" action="/accounts/signup/" method="post">
-      {% csrf_token%}
-      {{ form }}
-      <input type = "submit" value="Signup">
-  </form>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12 min-vh-100 d-flex flex-column justify-content-center">
+        <div class="row">
+          <div class="col-lg-6 col-md-8 mx-auto">
+            <div class="card rounded shadow-lg card-size">
+              <div class="card-header">
+                <h3 class="mb-0">Signup</h3>
+              </div>
+              <form class="site-form" action="/accounts/signup/" method="post">
+                {% csrf_token%}
+                {{ form }}
+                <button type="submit" class="btn btn-success btn-lg float-end" value="Signup" id="btnLogin">Sign Up</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 {% endblock %}

@@ -104,6 +104,10 @@ h3 {
   margin-bottom: -1.5%;
 }
 
+.card-size {
+  height: auto;
+  width: 750px;
+}
 
 /* CSS for custom toggle icon */
 .icon-bar
@@ -145,17 +149,26 @@ h3 {
       margin-top: -150% !important;
       font-size: 40px;
     }
+
+    .card-size{
+      height:auto;
+      width: 300px;
+    }
   }
   
-  @media(max-width: 375px) {
+  @media(min-width: 375px) {
     .over-lay {
       margin-top: -90%; 
       font-size: 40px;
     }
+    .card-size{
+      height:auto;
+      width: 350px;
+    }
   }
   /* BIG-ISH SCREENS / Tablets */
   
-  @media (max-width: 768px) {
+  @media (min-width: 768px) {
 
     #section-content {
       font-size: 2em;
@@ -164,6 +177,10 @@ h3 {
 
     .over-lay {
       margin-top: -60%;
+    }
+    .card-size{
+      height:auto;
+      width: 450px;
     }
   }
   
@@ -193,6 +210,10 @@ h3 {
       max-width: 100%;
     }
   
+    .card-size{
+      height:auto;
+      width: 700px;
+    }
   }
   
   @media (min-width: 1400px) {
