@@ -17,7 +17,7 @@ class Textbook(models.Model):
     created_by = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def publish(self):
-        self.published_date = timezone.now()
+        self.created_date = timezone.now()
         self.save()
 
     def __str__(self):
@@ -32,3 +32,17 @@ class CommentSection(models.Model):
 
     def __str__(self):
         return self.post.book_title
+
+class Courses(models.Model):
+    course_title = models.CharField(max_length=80)
+    created_date = models.DateTimeField(default=timezone.now)
+    published_date = models.DateTimeField(blank=True, null=True)
+    content = models.TextField()
+    created_by = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def publish(self):
+        self.created_date = timezone.now()
+        self.save()
+
+    def __str__(self):
+        return self.course_title

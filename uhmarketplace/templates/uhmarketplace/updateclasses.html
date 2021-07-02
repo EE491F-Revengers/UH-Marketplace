@@ -1,0 +1,8 @@
+<!-- This section is for updating the classes post that the user created -->
+
+<form method="post">{% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" value="Update">
+</form>
+
+<a class="nav-link link-color" href="{% url 'uhmarketplace:classes' %}">Back to Classes</a>

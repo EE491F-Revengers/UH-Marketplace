@@ -1,8 +1,8 @@
-<!-- This section is for deleting textbook posts -->
+<!-- This section is for deleting classes posts -->
     
 form method="post">{% csrf_token %}
     <p>Are you sure you want to delete "{{ object.message }}"?</p>
     <input type="submit" value="Confirm">
 </form>
 
-<a class="nav-link link-color" href="{% url 'uhmarketplace:textbook' %}">Back to Textbooks</a>
+<a class="nav-link link-color" href="{% url 'uhmarketplace:classes' %}">Back to Classes</a>

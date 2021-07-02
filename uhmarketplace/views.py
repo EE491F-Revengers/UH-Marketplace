@@ -1,16 +1,39 @@
 from django.views import generic
 from django.urls import reverse_lazy
-from .models import CommentSection, Textbook, Uhmarketplace
+from .models import Textbook, Uhmarketplace, Courses
 from django.utils import timezone
-from .filters import TextbookFilter
+from .filters import TextbookFilter, CoursesFilter
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.urls.base import set_urlconf
 
+#####################################
+#            Home Page              #
+#####################################
 
 class IndexView(generic.ListView):
     template_name = 'uhmarketplace/index.html'
     model = Uhmarketplace
+
+#####################################
+#        Underdeveloped pages       #
+#####################################
+
+class DormView(generic.ListView):
+    template_name = 'uhmarketplace/dorm.html'
+    model = Uhmarketplace
+
+class FoodieView(generic.ListView):
+    template_name = 'uhmarketplace/foodie.html'
+    model = Uhmarketplace
+
+class SuppliesView(generic.ListView):
+    template_name = 'uhmarketplace/supplies.html'
+    model = Uhmarketplace
+
+#####################################
+#         Textbooks tab views       #
+#####################################
 
 class CreateView(generic.edit.CreateView):
     template_name = 'uhmarketplace/createtextbook.html'
@@ -36,22 +59,6 @@ class TextbookView(generic.ListView):
     def get_queryset(self):
         """Return the all uhmarketplace."""
         return Textbook.objects.all()
-
-class DormView(generic.ListView):
-    template_name = 'uhmarketplace/dorm.html'
-    model = Uhmarketplace
-
-class ClassesView(generic.ListView):
-    template_name = 'uhmarketplace/classes.html'
-    model = Uhmarketplace
-
-class FoodieView(generic.ListView):
-    template_name = 'uhmarketplace/foodie.html'
-    model = Uhmarketplace
-
-class SuppliesView(generic.ListView):
-    template_name = 'uhmarketplace/supplies.html'
-    model = Uhmarketplace
 
 class DecOrderDateView(generic.ListView): #decending order (newest to oldest)
     template_name = 'uhmarketplace/decorderdate.html'
@@ -87,23 +94,74 @@ class FilterCreatedByView(generic.ListView):
     context_object_name = 'textbook_list'
 
     def get_queryset(self):
-        """Return all the blogs."""
+        """Return all the textbooks."""
         me = User.objects.get(username=self.request.user)
-        return Textbook.objects.filter(created_by=me)
-  
-class CreateCommentView(generic.edit.CreateView):
-    template_name = 'uhmarketplace/createtextbook.html'
-    model = CommentSection
-    fields = ['content', 'created_by']
-    success_url = reverse_lazy('uhmarketplace:textbook') # more robust than hardcoding to /uhmarketplace/; directs user to index view after creating a Uhmarketplace
+        return Textbook.objects.filter(created_by=me) 
 
-class UpdateCommentView(generic.edit.UpdateView):
-    template_name = 'uhmarketplace/updatetextbook.html'
-    model = CommentSection
-    fields = ['content']
-    success_url = reverse_lazy('uhmarketplace:textbook')
+#####################################
+#         Classes tab views         #
+#####################################
 
-class DeleteCommentView(generic.edit.DeleteView):
-    template_name = 'uhmarketplace/deletetextbook.html' # override default of uhmarketplace/uhmarketplace_confirm_delete.html
-    model = CommentSection
-    success_url = reverse_lazy('uhmarketplace:textbook')
+class CreateCourseView(generic.edit.CreateView):
+    template_name = 'uhmarketplace/createclasses.html'
+    model = Courses
+    fields = ['course_title', 'content', 'created_by']
+    success_url = reverse_lazy('uhmarketplace:classes') # more robust than hardcoding to /uhmarketplace/; directs user to index view after creating a Uhmarketplace
+
+class UpdateCourseView(generic.edit.UpdateView):
+    template_name = 'uhmarketplace/updateclasses.html'
+    model = Courses
+    fields = ['course_title','content']
+    success_url = reverse_lazy('uhmarketplace:classes')
+
+class DeleteCourseView(generic.edit.DeleteView):
+    template_name = 'uhmarketplace/deleteclasses.html' # override default of uhmarketplace/uhmarketplace_confirm_delete.html
+    model = Courses
+    success_url = reverse_lazy('uhmarketplace:classes')
+
+class CoursesView(generic.ListView):
+    template_name = 'uhmarketplace/classes.html'
+    context_object_name = 'courses_list'
+
+    def get_queryset(self):
+        """Return the all courses."""
+        return Courses.objects.all()
+
+class DecOrderCourseDateView(generic.ListView): #decending order (newest to oldest)
+    template_name = 'uhmarketplace/decorderclassesdate.html'
+    context_object_name = 'courses_list'
+
+    def get_queryset(self):
+        """Return all the Courses."""
+        return Courses.objects.order_by('-published_date')
+
+class AscOrderCourseDateView(generic.ListView): #ascending order (oldest to newest)
+    template_name = 'uhmarketplace/ascorderclassesdate.html'
+    context_object_name = 'courses_list'
+
+    def get_queryset(self):
+        """Return all the Courses."""
+        return Courses.objects.order_by(('published_date'))
+
+class SearchCourseView(generic.ListView):
+    template_name = 'uhmarketplace/searchclasses.html'
+    context_object_name = 'courses_list'
+
+    def get_queryset(self):
+        """Return all the Courses."""
+        return Courses.objects.all()
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['filter'] = CoursesFilter(self.request.GET, queryset=self.get_queryset())
+        return context
+
+class FilterCreatedByCoursesView(generic.ListView):
+    template_name = 'uhmarketplace/createdByClasses.html'
+    context_object_name = 'courses_list'
+
+    def get_queryset(self):
+        """Return all the courses."""
+        me = User.objects.get(username=self.request.user)
+        return Courses.objects.filter(created_by=me)
+

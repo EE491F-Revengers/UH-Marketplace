@@ -1,0 +1,8 @@
+<!-- This section is for adding classes. See views.py and models.py for code reference. -->
+
+<form method="post">{% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" value="Save">
+</form>
+
+<a class="nav-link link-color" href="{% url 'uhmarketplace:classes' %}">Back to Classes</a>
