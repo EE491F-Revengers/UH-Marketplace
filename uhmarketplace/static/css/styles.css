@@ -106,6 +106,7 @@ h3 {
     position: absolute;
 }
 
+
 /* responsive css */
 
 /*
@@ -150,8 +151,7 @@ h3 {
       max-width: 100%;
       flex: 1 0 auto;
     }
-  
-  
+
     footer span {
       font-size: 1.25rem;
     }
