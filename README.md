@@ -32,6 +32,5 @@ Documenting
 -----------
 * TBD
 
-Notes
------
-* TBD
+# Disclaimers 
+By using our application you acknowledge and agree that the software is licensed "as-is". In no event shall The Revengers be liable to you or anyone else for any direct or indirect damages of any kind. The Revengers gives no guarantees, conditions, or warranties. Any implications that may arise are the user's sole responsibility. No oral, nor written information provided from The Revengers shall create any legal bond. Thereby the use of our application is at your sole risk and discretion.
