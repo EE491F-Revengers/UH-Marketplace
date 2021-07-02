@@ -23,16 +23,6 @@ class Textbook(models.Model):
     def __str__(self):
         return self.book_title
 
-class CommentSection(models.Model):
-    post = models.ForeignKey(Textbook, on_delete=models.CASCADE, default=None)
-    created_date = models.DateTimeField(default=timezone.now)
-    published_date = models.DateTimeField(blank=True, null=True)
-    content = models.TextField()
-    created_by = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
-
-    def __str__(self):
-        return self.post.book_title
-
 class Courses(models.Model):
     course_title = models.CharField(max_length=80)
     created_date = models.DateTimeField(default=timezone.now)
