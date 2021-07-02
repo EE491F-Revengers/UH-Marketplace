@@ -4,6 +4,18 @@ https://medium.com/@zhao.li/how-to-start-a-django-project-using-containers-cd816
 and
 https://medium.com/@zhao.li/an-example-django-web-application-with-a-postgresql-database-in-containers-cc29121df310
 
+
+# Developers 
+* Jessica Ocampo (jnocampo)
+* Kiyoshi Hashida (mistahYoshi)
+* Sean Flynn (sflynn7)
+* Beemnet Alemayehu (beemneta)
+* Daniel Kim (dkmim26)
+
+
+# Latest Release 
+* []()
+
 Getting Started
 ---------------
 1. install docker
