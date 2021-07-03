@@ -7,6 +7,8 @@
     text-shadow:2px 1px rgb(108, 241, 68);
     
 }
+
+
 .logo{
     background-image:url("https://www.logolynx.com/images/logolynx/98/98e5048822d9387f0503cf42903b43d4.png");
     background-size: 50px 50px;
@@ -18,6 +20,11 @@
 #footer{
     font-family: Roboto;
     font-size: 15px;
+}
+
+.footer {
+  margin-bottom: 0;
+  position: fixed;
 }
 
 .base-background {
@@ -82,6 +89,26 @@ h3 {
 }
 
 
+/* Sign up  Page Paralax */
+.parallax-signup {
+  /* The image used */
+  background-image: url('https://www.hawaii.edu/wp/wp-content/uploads/2021/04/Manoa1.jpg');
+
+  /* Create the parallax scrolling effect */
+  min-height: 600px;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: 50% 50%;
+  box-shadow: 0 8px 5px #888888;
+  top: 0px !important;
+  margin-bottom: -1.5%;
+}
+
+.card-size {
+  height: auto;
+  width: 750px;
+}
+
 /* CSS for custom toggle icon */
 .icon-bar
 {
@@ -122,17 +149,26 @@ h3 {
       margin-top: -150% !important;
       font-size: 40px;
     }
+
+    .card-size{
+      height:auto;
+      width: 300px;
+    }
   }
   
-  @media(max-width: 375px) {
+  @media(min-width: 375px) {
     .over-lay {
       margin-top: -90%; 
       font-size: 40px;
     }
+    .card-size{
+      height:auto;
+      width: 350px;
+    }
   }
   /* BIG-ISH SCREENS / Tablets */
   
-  @media (max-width: 768px) {
+  @media (min-width: 768px) {
 
     #section-content {
       font-size: 2em;
@@ -141,6 +177,10 @@ h3 {
 
     .over-lay {
       margin-top: -60%;
+    }
+    .card-size{
+      height:auto;
+      width: 450px;
     }
   }
   
@@ -170,6 +210,10 @@ h3 {
       max-width: 100%;
     }
   
+    .card-size{
+      height:auto;
+      width: 700px;
+    }
   }
   
   @media (min-width: 1400px) {
