@@ -154,6 +154,12 @@ h3 {
       height:auto;
       width: 300px;
     }
+    #media-size-right {
+      display:contents;
+    }
+    #media-size-left {
+      display: flex;
+    }
   }
   
   @media(min-width: 375px) {
@@ -164,6 +170,9 @@ h3 {
     .card-size{
       height:auto;
       width: 350px;
+    }
+    #media-size-left {
+      display: contents;
     }
   }
   /* BIG-ISH SCREENS / Tablets */
