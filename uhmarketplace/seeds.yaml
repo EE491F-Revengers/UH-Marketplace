@@ -61,3 +61,19 @@
     course_title: ENG100
     content: You learn how to write. This class is meh! 
     created_by: 1
+
+- model: blog.Post
+  fields:
+    title: Boston's Pizza
+    author: 1
+    text: Pizza is kind of pricey, but overall one of the best pizzas I had in a while.
+    created_date: 2021-04-23T17:41:28+00:00
+    published_date: 2021-04-23T17:41:28+00:00
+
+- model: blog.Post
+  fields:
+    title: Subway
+    author: 1
+    text: I'm a college student. Subway is cheap. What more can I say?
+    created_date: 2021-04-24T17:41:28+00:00
+    published_date: 2021-04-24T17:41:28+00:00
