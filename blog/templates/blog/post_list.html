@@ -3,15 +3,26 @@
 {% load static %}
 
 {% block content %}
-<header id="UHMarkerplaceHeader">
+<header id="UHMarkerplaceHeader" style="text-align: center;">
   <h1>Foodie</h1>
   <p>A place to discuss about the awesome places to eat or horrible places to avoid</p>
 </header>
 
 <div>
   {% if user.is_authenticated %}
+  <div class="row justify-content-center">
+    <div class="col-lg-3 col-md-6 col-xs-4" id="media-size-left">
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">Create a Post</h5>
+      <p class="card-text">Got something you want to sell?</p>
+      <a href="{% url 'post_new' %}" class="top-menu">Create a Foodie Post</a>
+
+    </div>
+  </div>
+  </div>
+    <div class="col-lg-8 col-md-12 col-xs-8" id="media-size-right">
   <ul>
-    <a href="{% url 'post_new' %}" class="top-menu">Create a Foodie Post</a>
     <div class="accordion" id="accordionPanelsStayOpenExample">
       <div class="accordion-item">
         <h2 class="accordion-header" id="panelsStayOpen-headingOne">
@@ -42,7 +53,7 @@
                 <!-- Down below only allows the person who created the post to edit or delete their post -->
                 {% if user == post.author %}
                 <div display:inline-block>
-                  <aside class="actions">
+                  <aside class="actions float-start">
                     <a href="{% url 'post_edit' pk=post.pk %}"><svg xmlns="http://www.w3.org/2000/svg" width="16"
                         height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
                         <path
@@ -50,7 +61,7 @@
                       </svg>Edit</a>
                   </aside>
 
-                  <aside class="actions">
+                  <aside class="actions float-end">
                     <a href="{% url 'post_remove' pk=post.pk %}"><span class="glyphicon glyphicon-remove"></span><svg
                         xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                         class="bi bi-trash" viewBox="0 0 16 16">
@@ -90,6 +101,8 @@
       </div>
     </div>
   </ul>
+</div>
+</div>
 
   {% else %}
   <h5>You are not logged in, please <a href="{% url 'accounts:login'%}">Please Sign in</a> or <a
