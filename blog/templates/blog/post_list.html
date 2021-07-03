@@ -27,7 +27,6 @@
             {% for post in posts %}
             <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
               <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="..." alt="Card image cap">
                 <div class="card-body">
                   <article>
                     <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
