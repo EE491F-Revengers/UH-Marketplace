@@ -14,7 +14,7 @@
 
 
 # Latest Release 
-* []()
+* [V.1.0.0 Intial Release](https://github.com/EE491F-Revengers/UH-Marketplace/releases/tag/1.0.0)
 
 Testing
 -------
