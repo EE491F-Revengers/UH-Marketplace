@@ -10,7 +10,6 @@ urlpatterns = [
     path('textbook/', views.TextbookView.as_view(), name='textbook'),
     path('dorm/', views.DormView.as_view(), name='dorm'),
     path('classes/', views.CoursesView.as_view(), name='classes'),
-    path('foodie/', views.FoodieView.as_view(), name='foodie'),
     path('supplies/', views.SuppliesView.as_view(), name='supplies'),
     path('decorderDate/', views.DecOrderDateView.as_view(), name='decorderDate'),
     path('ascorderDate/', views.AscOrderDateView.as_view(), name='ascorderDate'),

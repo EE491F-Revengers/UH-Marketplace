@@ -20,5 +20,5 @@ urlpatterns = [
     path('uhmarketplace/', include('uhmarketplace.urls')),
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls')),
-    path('foodie/', include('blog.urls')),
+    path('', include('blog.urls')),
 ]

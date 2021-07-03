@@ -23,10 +23,6 @@ class DormView(generic.ListView):
     template_name = 'uhmarketplace/dorm.html'
     model = Uhmarketplace
 
-class FoodieView(generic.ListView):
-    template_name = 'uhmarketplace/foodie.html'
-    model = Uhmarketplace
-
 class SuppliesView(generic.ListView):
     template_name = 'uhmarketplace/supplies.html'
     model = Uhmarketplace
